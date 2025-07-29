@@ -11,13 +11,13 @@ public class Menus {
         System.out.println(
                 "==========================================\n" +
                         "Selecciona la opcion que desea realizar: \n" +
-                        "1. Agregar producto. \n" +
-                        "2. Listar productos. \n" +
-                        "3. Vender producto. \n" +
-                        "4. Reponer producto. \n" +
-                        "5. Mostrar productos con bajo stock. \n" +
-                        "6. Mostrar valor total del inventario. \n" +
-                        "7. Salir. \n" +
+                        " 1. Agregar producto. \n" +
+                        " 2. Listar productos. \n" +
+                        " 3. Vender producto. \n" +
+                        " 4. Reponer producto. \n" +
+                        " 5. Mostrar productos con bajo stock. \n" +
+                        " 6. Mostrar valor total del inventario. \n" +
+                        " 7. Salir. \n" +
                         "==========================================\n"
         );
 
@@ -31,8 +31,11 @@ public class Menus {
             case 2:
                 System.out.println("Listando productos... ");
                 produ.mostrarProductos();
+                produ.informacionDetallada();
                 break;
             case 3:
+                System.out.println("Seleccionando productos para venta ... ");
+                produ.ventaProductos();
                 break;
             case 4:
                 break;
