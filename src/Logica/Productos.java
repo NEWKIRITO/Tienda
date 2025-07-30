@@ -24,21 +24,16 @@ public class Productos {
         Producto producto = new Producto(nombre, categoria, precio, stock);
         productos.add(producto);
         sc.nextLine();
-
         mostrarProductos();
-
     }
 
     public void mostrarProductos() {
-
         System.out.println("==========================================");
 
         if (productos.isEmpty()) {
             System.out.println("No hay productos en el almacen. ");
         } else {
-
-            System.out.println("Lsita de productos: ");
-
+            System.out.println("Lista de productos: ");
             for (int i = 0; i < productos.size(); i++) {
                 Producto producto = productos.get(i);
                 System.out.println(" " + (i + 1) + "." + producto.getNombre());
@@ -47,9 +42,7 @@ public class Productos {
     }
 
     public void informacionDetallada() {
-
         System.out.println("==========================================");
-
         System.out.println("Desea mostrar informacion mas detallada de los productos? (S/N): ");
         String opcion = sc.nextLine();
 
@@ -67,6 +60,7 @@ public class Productos {
                 System.out.println("No se mostrará información. \n");
                 break;
         }
+        sc.nextLine();
     }
 
     public void ventaProductos() {
@@ -80,8 +74,23 @@ public class Productos {
 
             for (int i = 0; i < productos.size(); i++) {
                 Producto producto = productos.get(i);
+                if (producto.getNombre().equalsIgnoreCase(busquedaProducto)) {
+                    System.out.println("Producto encontrado. \n" +
+                            "Cual es la cantidad que desea vender: ");
+                    int cantidad = sc.nextInt();
+
+                    if (cantidad <= producto.getStock()) {
+                        producto.setStock(producto.getStock() - cantidad);
+                        System.out.println("La venta del producto " + producto.getNombre() +
+                                " Se realizó con exito.");
+                    } else {
+                        System.out.println("No hay suficiente stock para realizar la venta.");
+                    }
+                } else {
+                    System.out.println("El producto no ha sido encontrado.");
+                }
             }
         }
+        sc.nextLine();
     }
-
 }
